@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <style>
+        
+        .container{
+            display: flex;
+            gap:5px;
+            border:2px solid black;
+            height: auto;
+            
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 20px;
+        }
+        .grid-container{
+            border: 2px solid black;
+            display: grid;
+            grid-template-columns: repeat(3,0fr);
+            gap: 10px; 
+            align-items: center;
+            margin-top: 20px;
+            /* grid-template-rows: repeat(2,0fr); */
+        }
+        .circle{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        #box1{
+            grid-column: span 2;
+            grid-row: span 2;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>flex box center</h4>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <h2>grid with 3 rows</h4>
+    <div class="grid-container">
+        <div class="circle" id="box1"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+
+    </div>
+</body>
+</html>
