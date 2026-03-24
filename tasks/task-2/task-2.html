@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grid layout website</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: 200px 1fr 80px;
+        grid-template-rows: 60px 1fr 80px;
+        gap: 10px;
+        height: 100%;
+        grid-template-areas:
+          "header header header"
+          "sidebar main main"
+          "footer footer footer";
+      }
+      #header {
+        grid-area: header;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(129, 176, 147);
+      }
+      nav {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+      }
+      #sidebar {
+        grid-area: sidebar;
+        display: flex;
+        background-color: rgb(227, 227, 227);
+      }
+      #main {
+        grid-area: main;
+        display: flex;
+        overflow: hidden;
+      }
+      #footer {
+        grid-area: footer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(227, 227, 227);
+      }
+      .container div {
+        /* border: 2px solid black; */
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .profile {
+        position: relative;
+        left: -10px;
+        border-radius: 50%;
+      }
+      #sidebar ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: ; */
+        gap: 20px;
+        flex: 1;
+        /* border: 2px solid black; */
+      }
+      li {
+        font-size: 18px;
+      }
+
+      #main .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 150px 150px 200px 150px;
+        gap: 10px;
+        flex: 1;
+        /* margin: 10px; */
+        grid-template-areas:
+          "intro skills blog"
+          "projects skills blog"
+          "projects aboutme blog"
+          "contactme contactme contactme";
+        overflow-y: auto;
+      }
+      .cards div {
+        /* min-height: 150px; */
+      }
+      .cards #intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
+        border-radius: 10px;
+        background-color: rgb(227, 227, 227);
+      }
+      #intro p {
+        text-align: center;
+        margin: 0;
+      }
+      #intro h2 {
+        margin: 5px;
+      }
+      #intro {
+        grid-area: intro;
+      }
+      #projects {
+        grid-area: projects;
+        background-color: rgb(227, 227, 227);
+        padding: 10px;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 3px;
+        border-radius: 7px;
+      }
+      #projects .project-card-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .project-cards img {
+        border-radius: 3px;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+      }
+      .project-cards {
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        background-color: white;
+        border: 2px solid rgb(122, 122, 122);
+        gap: 5px;
+      }
+
+      #skills {
+        grid-area: skills;
+        background-color: rgb(227, 227, 227);
+        padding: 15px;
+        /* height: min-content; */
+      }
+      #aboutme {
+        grid-area: aboutme;
+      }
+      #blog {
+        grid-area: blog;
+        background-color: rgb(227, 227, 227);
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        border-radius: 7px;
+        /* height: 100%; */
+      }
+      #blog #blog-post-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        /* height: 100%; */
+      }
+      #blog .blog-post {
+        /* border: 2px solid black; */
+        border-bottom: 2px solid black;
+      }
+      #contactme {
+        grid-area: contactme;
+      }
+      #skills ul {
+        margin-top: 30px;
+        list-style-type: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        max-width: 500px;
+
+        row-gap: 10px;
+        place-items: center;
+
+        padding: 0;
+        /* gap:40px */
+      }
+      #aboutme {
+        /* border: 2px solid black; */
+        padding: 10px;
+        background-color: rgb(227, 227, 227);
+      }
+      #contactme {
+        /* border: 2px solid black; */
+        padding: 10px;
+        background-color: rgb(227, 227, 227);
+      }
+      input{
+       padding:10px; 
+       border-radius: 5px;
+       border: 1px solid black;
+       width: 30%;
+       font-size: 12px;
+      }
+      #contactme .contact-form label{
+        font-size: 14px;
+      }
+      button{
+        padding: 10px;
+        width: 10%;
+        font-size: 13px;
+        border-radius: 5px;
+        background-color: rgb(66, 142, 229);
+      }
+      .footer-content{
+        display: flex;
+        flex-direction: row;
+        gap:20px
+      }
+      #footer ul{
+        list-style-type: none;
+      }
+      #floating-box{
+        height: 50px;
+        width: 50px;
+        background-color: blueviolet;
+        position:fixed;
+        z-index: 1;
+        /* top:40px; */
+        right: 40px;
+        bottom: 10px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      #floating-box img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="header">
+        <nav class="navbar">
+          <a href="#">Home</a>
+          <a href="#">Projects</a>
+          <a href="#">Experience</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </nav>
+        <div class="profile">
+          <img src="../../practice/profile-image.png" height="40px" />
+        </div>
+      </div>
+      <div id="sidebar">
+        <ul class="sidebar-content">
+          <li>Home</li>
+          <li>Projects</li>
+          <li>Experience</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+      <div id="main">
+        <div class="cards">
+          <div id="intro">
+            <img
+              src="../../practice/profile-image.png"
+              height="50px"
+              class="profile"
+            />
+            <h2>Dhanush Keloth</h2>
+            <p>I am a web developer, create impactful fullstack projects</p>
+            <!-- <div class="intro-text">
+                    </div> -->
+          </div>
+          <div id="projects">
+            <h2>Featured Projects</h2>
+            <div class="project-card-container">
+              <div class="project-cards">
+                <img src="./mountain.jpg" alt="project1" height="100px" />
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                  "
+                >
+                  <h3 style="margin: 0">Project 1</h3>
+                  <p>
+                    this is a description about project 1. this is a description
+                    about project 1
+                  </p>
+                </div>
+              </div>
+              <div class="project-cards">
+                <img src="./mountain.jpg" alt="project1" height="100px" />
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                  "
+                >
+                  <h3 style="margin: 0">Project 1</h3>
+                  <p>
+                    this is a description about project 1. this is a description
+                    about project 1
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="skills">
+            <h2>Skills</h2>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Python</li>
+              <li>Java</li>
+              <li>SQL</li>
+              <li>CPP</li>
+              <li>C#</li>
+              <li>Linux</li>
+            </ul>
+          </div>
+          <div id="aboutme">
+            <h2>About me</h2>
+            <p>
+              I am a passionate learner and always eager to explore new
+              opportunities in the world of <em>technology</em>. I believe in
+              <strong>continuous learning</strong> and strive to stay updated
+              with the latest trends in the industry.
+            </p>
+            <h2>Experience</h2>
+            <p>
+              I worked as a freelance web developer. I have experience in
+              creating responsive and user-friendly websites.
+            </p>
+          </div>
+          <div id="blog">
+            <h2>Blog Insights</h2>
+            <div class="blog-post-container">
+              <div class="blog-post">
+                <h3>17 May 2023</h3>
+                <p>
+                  This is a blog post about the generative ai and how it is
+                  changing the world.
+                </p>
+              </div>
+              <div class="blog-post">
+                <h3>17 May 2023</h3>
+                <p>
+                  This is a blog post about the generative ai and how it is
+                  changing the world.
+                </p>
+              </div>
+              <div class="blog-post">
+                <h3>17 May 2023</h3>
+                <p>
+                  This is a blog post about the generative ai and how it is
+                  changing the world.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div id="contactme">
+            <h2>Contact me</h2>
+            <div class="contact-form">
+              <label>Name:</label><input type="text" placeholder="Name"/>
+              <label>Email:</label><input type="email" placeholder="Email"/>
+              
+              <button type="submit">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="footer">
+        <span>Copyright &copy; 2023 Dhanush Keloth</span>
+        <ul class="footer-content">
+          <li>dhanush@email.com</li>
+          <li>Dhanush Keloth</li>
+        </ul>
+      </div>
+    </div>
+    <div id="floating-box">
+      <img src="./mountain.jpg" alt="mountain"  style="object-fit: cover;"/>
+    </div>
+  </body>
+</html>
