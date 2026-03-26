@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>target</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #f4f4f4;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      nav {
+        position: fixed;
+        /* top: 0;
+        left: 0; */
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-color: #333;
+        padding: 20px 0px;
+        z-index: 1;
+      }
+      .logo {
+        color: white;
+        font-size: 20px;
+      }
+      .navlinks {
+        display: flex;
+        gap: 30px;
+        margin-right: 40px;
+      }
+      .navlinks a {
+        text-decoration: none;
+        color: rgb(47, 189, 139);
+        font-size: 18px;
+      }
+      section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-100%);
+
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease,
+          visibility 0.6s;
+      }
+      section:target {
+        border: 2px solid rgb(38, 164, 158);
+        z-index: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      #home {
+        background: #c8bcbc;
+      }
+      #about {
+        background: #ffeaa7;
+      }
+      #projects {
+        background: #81ecec;
+      }
+      #contact {
+        background: #fab1a0;
+      }
+      #experience {
+        background: #ff7675;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <h2 class="logo">Hello world</h2>
+        <div class="navlinks">
+          <a href="#home">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+      <main class="pages">
+        <section id="home" class="page">
+          <h2>This is a home page</h2>
+        </section>
+        <section id="projects" class="page">
+          <h2>This is a projects page</h2>
+        </section>
+        <section id="experience" class="page">
+          <h2>This is a experience page</h2>
+        </section>
+        <section id="about" class="page">
+          <h2>This is a about page</h2>
+        </section>
+        <section id="contact" class="page">
+          <h2>This is a contact page</h2>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
