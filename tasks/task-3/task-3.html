@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Accordion</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 40px;
+      }
+
+      .accordion {
+        max-width: 500px;
+        margin: auto;
+      }
+      input{
+        display: none;
+      }
+      .accordion-header{
+        display: block;
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        cursor: pointer;
+      }
+      .accordion-content{
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 15px;
+        transition: max-height 0.4s ease;
+      }
+      /* triggers when the checkbox is checked  */
+      /* it can also be done using the display property by setting the display as block */
+      .accordion input:checked ~ .accordion-content{
+        /* display: block; */
+        max-height: 150px;
+        background-color: white;
+        color: black;
+        padding: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="accordion">
+      <!-- Item 1 -->
+      <div class="accordion-item">
+        <input type="checkbox" id="item1" />
+        <label for="item1" class="accordion-header">Section 1</label>
+        <div class="accordion-content">
+          <p>This is the content of section 1.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <input type="checkbox" id="item2" />
+        <label for="item2" class="accordion-header">Section 2</label>
+        <div class="accordion-content">
+          <p>This is the content of section 1.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
